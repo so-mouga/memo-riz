@@ -1,4 +1,13 @@
+register:
+  path: /register
+  controller: App\Controller\AuthController::register
+  methods: POST
+
 _v1:
   type:  annotation
   resource: ../../src/Controller/Api/V1
   prefix: /api/v1/
+
+login_check:
+  path:     /login_check
+  methods:  [POST]

@@ -1,10 +1,11 @@
 .DS_Store
-!/docker/logs/
-docker/logs/*
-docker/logs/nginx/symfony_access.log
-!/docker/logs/.gitkeep
+!./docker/logs/
+.docker/logs/*
+/docker/logs/apache/symfony_access.log
+!./docker/logs/.gitkeep
 nbproject/
-
+.docker/logs/apache/access.log
+.docker/logs/apache/error.log
 
 /.idea
 ###> symfony/framework-bundle ###
@@ -29,3 +30,7 @@ yarn-error.log
 .phpunit
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
