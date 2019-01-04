@@ -20,11 +20,6 @@ use Symfony\Component\Form\FormInterface;
  */
 trait ApiErrorsTrait
 {
-    /**
-     * @param FormInterface $form
-     *
-     * @return string
-     */
     private function getFormErrors(FormInterface $form): string
     {
         $readableErrors = [];
@@ -34,7 +29,7 @@ trait ApiErrorsTrait
                 '[%s] %s : %s',
                 $error->getCause()->getPropertyPath(),
                 $error->getMessage(),
-                is_array($error->getCause()->getInvalidValue()) ? implode(', ', $error->getCause()->getInvalidValue()) : $error->getCause()->getInvalidValue()
+                \is_array($error->getCause()->getInvalidValue()) ? implode(', ', $error->getCause()->getInvalidValue()) : $error->getCause()->getInvalidValue()
             );
         }
 

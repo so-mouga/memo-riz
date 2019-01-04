@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Controller;
+
 use App\Controller\Api\ApiErrorsTrait;
+use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -10,9 +13,7 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Entity\User;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class AuthController extends FOSRestBundle
@@ -50,13 +51,12 @@ class AuthController extends FOSRestBundle
         EntityManagerInterface $doctrine,
         UserPasswordEncoderInterface $encoder,
         SerializerInterface $serializer
-    )
-    {
+    ) {
         $this->userRepository = $userRepository;
-        $this->formFactory    = $formFactory;
-        $this->doctrine       = $doctrine;
-        $this->encoder        = $encoder;
-        $this->serializer     = $serializer;
+        $this->formFactory = $formFactory;
+        $this->doctrine = $doctrine;
+        $this->encoder = $encoder;
+        $this->serializer = $serializer;
     }
 
     public function register(Request $request)
